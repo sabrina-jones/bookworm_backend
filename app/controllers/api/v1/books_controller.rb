@@ -1,17 +1,21 @@
 class Api::V1::BooksController < ApplicationController
     def index
         books = Book.all
-        #render json: books
         render json: BookSerializer.new(books)
     end
 
     def create
         book = Book.new(book_params)
         if book.save
-          render json: book, status: :accepted
+          render json: BookSerializer.new(book)
         else
           render json: {errors: book.errors.full_messages}, status: :unprocessible_entity
         end
+      end
+
+      def destroy
+        book = Book.find(params[:id])
+        book.destroy
       end
     
       private

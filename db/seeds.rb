@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#comeback, how to use detroy all in seed data
+#Category.destroy_all
+#Book.destroy_all
 
 self_help = Category.create(name: "Self Help")
 finance = Category.create(name: "Finance")
